@@ -1,4 +1,4 @@
-# Set the version of PocketBase using the folling Packer variable:
+# Set the version of PocketBase using the following Packer variable:
 variable "version" {
   type             = string
   default          = "0.10.1"

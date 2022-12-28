@@ -10,10 +10,10 @@ First, you will need to install Packer on your system.  On a Mac, use
 brew install packer
 ```
 
-This builder uses the new hcl format:
+This builder uses the new hcl format.  Pass the version of PocketBase you wish to use, ie. `0.10.0`
 
 ```
-packer build --only 'digitalocean.ubuntu-2204' .
+packer build --only 'digitalocean.ubuntu-2204' -var 'version={packer-version}' .
 ```
 
 Once complete, Packer has created a new image in your account that you can use to create a droplet running the described version of PocketBase.

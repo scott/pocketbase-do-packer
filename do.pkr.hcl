@@ -1,7 +1,7 @@
 # Set the version of PocketBase using the following Packer variable:
 variable "version" {
   type             = string
-  default          = "0.10.1"
+  default          = "${env("APP_VERSION")}"
 }
 
 source "digitalocean" "ubuntu-2204" {
@@ -28,6 +28,16 @@ build {
       "PB_VERSION=${var.version}",
     ]
     scripts          = ["scripts/01_setup_machine.sh", "scripts/03_cleanup.sh", "scripts/04_img_check.sh"]
+  }
+
+  post-processors {
+    post-processor "manifest" {
+      output = "manifest.json"
+      strip_path = true
+    }
+    post-processor "shell-local" { 
+      inline = [ "sh do/mp-submit.sh" ]
+    }
   }
 
 }

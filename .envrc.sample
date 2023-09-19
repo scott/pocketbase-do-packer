@@ -1,0 +1,9 @@
+# Building this image requires a DO API token
+export DIGITALOCEAN_TOKEN="replace-with-token"
+
+# You won't need these unless you are adapting this token
+# submit an app to the marketplace:
+export REPO_NAME="app/app"
+export SAFE_NAME="ap"
+export APP_ID="replace-with-app-id"
+export SUBMIT_MP=false # true to submit to MP
